@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.date = "2012-03-24"
   s.description = "Buttless gives you a way to quickly flesh out an API in detail. It generates sexy documentation. And, you can quickly run the API and simulate various scenarios without neededing a backend."
   s.email = "tobin@tobinharris.com"
+  s.executables = ["buttless"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -19,10 +20,13 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "bin/buttless",
+    "buttless.gemspec",
     "lib/buttless.rb",
     "test/helper.rb",
     "test/test_buttless.rb"

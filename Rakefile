@@ -20,8 +20,8 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{Design, document and develop against an API without having a backend.}
   gem.description = %Q{Buttless gives you a way to quickly flesh out an API in detail. It generates sexy documentation. And, you can quickly run the API and simulate various scenarios without neededing a backend.}
   gem.email = "tobin@tobinharris.com"
-  gem.authors = ["Tobin Harris"]
-  gem.default_executable = 'bin/buttless'
+  gem.authors = ["Tobin Harris"]  
+  gem.files.include 'lib/template'
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

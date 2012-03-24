@@ -23,6 +23,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["Tobin Harris"]  
   gem.files.include 'lib/template/*'
   gem.files.include 'lib/template/api-doc/*'
+  gem.files.include 'lib/template/api-doc/images/*'
   gem.files.include 'lib/template/code_samples/*'
   gem.files.include 'lib/template/json_examples/*'
   gem.files.include 'lib/template/server/*'

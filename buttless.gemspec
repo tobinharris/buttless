@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/template/Gemfile",
     "lib/template/Gemfile.lock",
     "lib/template/Rakefile",
+    "lib/template/api-doc/images/logo.png",
     "lib/template/api-doc/index.html",
     "lib/template/api-doc/index.md.erb",
     "lib/template/api-doc/report.css",

@@ -17,10 +17,11 @@ Jeweler::Tasks.new do |gem|
   gem.name = "buttless"
   gem.homepage = "http://github.com/tobinharris/buttless"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Design, document and develop against an API without having a backend.}
+  gem.description = %Q{Buttless gives you a way to quickly flesh out an API in detail. It generates sexy documentation. And, you can quickly run the API and simulate various scenarios without neededing a backend.}
   gem.email = "tobin@tobinharris.com"
   gem.authors = ["Tobin Harris"]
+  gem.default_executable = 'bin/buttless'
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -32,13 +33,13 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
-end
+# require 'simplecov/simplecovtask'
+# Rcov::RcovTask.new do |test|
+#   test.libs << 'test'
+#   test.pattern = 'test/**/test_*.rb'
+#   test.verbose = true
+#   test.rcov_opts << '--exclude "gems/*"'
+# end
 
 task :default => :test
 

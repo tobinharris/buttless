@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+unless ARGV.empty?
+  file = File.expand_path(File.dirname(__FILE__)) + '/..'  
+  cmd = "cp -r #{file}/lib/template #{ARGV[0]}"
+  puts cmd
+else
+  puts "\n\nButtless\nLets you design, document and develop against an API without having a backend.\n\nUsage\n\n\tbuttless my_api_project      # Generates an empty buttless folder"
+end

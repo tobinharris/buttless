@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title><%= @config["full_title"] %></title>  
+<base href="root_url">
+<link href="report.css" media="screen, print" rel="stylesheet" type="text/css" />
+<link href="screen.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <img src="images/logo.png" alt="Logo" style="float: right; width: 150px;"/>
+  <span class="title"><%= @config["title"] %><br/><small><%= @config["subtitle"]%></small></span>
+  <p>Document v0.1 DRAFT - <%= Time.new.strftime('%h %d, %Y %H:%M') %></p>
+  <p class="big-heading"><%= @config["document_summary"]%></p>
+  <%= @toc %>
+  <%= @content %>  
+</body>

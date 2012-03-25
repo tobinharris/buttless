@@ -1,0 +1,50 @@
+---
+    - resource: Funky Thing
+      methods:
+        - path: /api/funky/thing
+          resolves_to: /api/funky/thing/info.json
+          method: GET
+          precis: |
+            Returns information about the thing. 
+          description: |
+          parameters:            
+          example_response: funky_thing
+    - resource: Funky Stuff
+      methods:
+        - path: /api/funky/stuff
+          resolves_to: /api/funky/stuff/index.json
+          method: GET
+          precis: |
+            Returns a list of stuff.
+          description: |
+            This method is very useful.
+          parameters:
+          example_response: funky_stuff
+        - path: /api/funky/stuff/:id/info
+          resolves_to: /api/funky/stuff/:id/info.json
+          method: GET
+          precis: |
+            Returns the info about the stuff.
+          description:
+          parameters:
+              - name: id
+                example: 1
+                precis: The id of the stuff 
+          example_response: funky_stuff_info
+        - path: /api/funky/stuff/:id/info
+          resolves_to: /api/funky/stuff/:id/info.json
+          method: POST
+          precis: |
+              Updates stuff.
+          description:
+          parameters:
+              - name: id
+                example: 1
+                precis: The id of the device
+              - name: name
+                example: My Stuff
+                precis: The new name of the stuff
+                optional: false
+                type: POST
+                
+          example_response: post_ok            

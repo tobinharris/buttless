@@ -1,0 +1,152 @@
+
+body{
+    font-family: Helvetica;
+    font-size: 0.8em;
+    line-height: 1.6em;
+    
+}
+
+.title {
+    font-size: 2.8em;
+    font-weight: bold;
+    line-height: 1.2em;
+    font-family: Helvetica;    
+}
+
+h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    line-height: 1.2em;
+    font-family: Helvetica;    
+    page-break-before: always;
+}
+
+.title small{
+    font-size: 0.6em;
+    
+}
+
+h2, h3, h4{
+    font-weight: bold;
+    color: #222;
+    font-size: 1.8em;
+    font-family: Helvetica;
+}
+
+h2{
+    font-size: 1.8em;
+}
+
+h3{
+  font-size: 1.2em;
+  font-style: normal;
+  color: #900;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #900;
+}
+
+h4{
+  font-size: 1.0em;
+}
+
+.note{
+    font-size: 0.8em;
+    padding: 1em;
+    background: #EEE;    
+}
+
+.big-heading{
+    background: #222;
+    font-size: 1.4em; 
+    line-height: 1.6em; 
+    color: #FFF;
+    padding: 0.5em 0.8em 0.5em 0.8em;
+}
+
+.pb_before { page-break-before: always !important; }
+.pb_after  { page-break-after: always !important; }
+.pb_avoid { page-break-inside: avoid !important; }
+
+table{
+  font-size: 0.95em;  
+}
+
+td{
+    text-align: left;
+    padding-left: 1em;
+}
+
+th{
+  padding-left: 0em;  
+  color: #777;
+  padding: 0.2em 0.5em 0.2em 1em;
+  text-align: left;
+  vertical-align: top;
+}
+
+td:first-child, tr td:nth-child(2)  {
+    /*font-family: courier;*/
+    padding-left: 0em;
+/*    color: blue;*/
+    white-space: nowrap;
+}
+
+
+tr th:first-child{
+    padding-left: 0em;
+}
+
+.api td:first-child, .api td:nth-child(2)  {
+    font-family: courier;
+    padding-left: 0em;
+    color: #900;
+    white-space: nowrap;
+}
+
+.parameters td:first-child {
+    font-family: courier;
+    padding-left: 0em;
+    color: #900;
+    white-space: nowrap;
+}
+
+.up_arrow:before{
+    content: "⬆";
+    font-size: 1em;
+    color: #6C6;    
+}
+
+.down_arrow:before{
+    content: "⬇";
+    font-size: 1em;
+    color: #C03;    
+}
+
+.sample{
+    font-family: courier;
+    font-size: 0.8em;
+    letter-spacing: -0.01px;    
+    color: #900;
+    line-height: 1.2em;
+    padding: 0.7em 0.5em 0.7em 0.5em;
+    border: 1px dashed #900;
+}
+
+.sample strong{    
+    -webkit-transform: rotate(6deg);
+    -moz-transform: rotate(6deg)
+    display: inline;
+    background: #900;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+    color: white;
+}
+
+pre{
+    background-color: #F8F8F8;
+    border: 1px solid #CCC;
+    padding: 1em;
+    font-size: 1.2em;
+    page-break-inside: avoid;
+    white-space: pre;
+}
+

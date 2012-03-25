@@ -1,0 +1,96 @@
+require 'rubygems'
+require "bundler/setup"
+require 'rake/testtask'
+require 'pdfkit'
+require 'redcarpet'
+require 'erb'
+require 'tilt'
+
+class Helper
+  def example_path(method, ip=nil)
+    path = method["path"]
+    params = []
+    method["parameters"].each do |p|      
+      next if p["optional"] or p["type"]=="POST" 
+      if path.include?(":#{p['name']}") 
+        path.gsub!(":#{p['name']}", p["example"].to_s)
+        next
+      end
+      params << "#{p["name"]}=#{p["example"]}"            
+    end unless method["parameters"].nil?
+    
+    api_call = "#{path}?#{params.join('&')}"
+    #puts "**** WARNING **** \n Method length is #{api_call.length}, which is greater than 19 so won't work on some embedded devices: #{api_call}" if "#{path}?#{params.join('&')}".length > 19
+    "#{ip}#{api_call}"
+  end
+  
+  def example_curl(method, ip="http://192.168.1.3", no=2)
+    path = example_path(method, ip)
+    i = 0
+    params = []    
+    method["parameters"].select{|p|p["type"]=="POST"}.each do |p|
+      break unless i < no or p["optional"] == false
+      i=i+1 
+      params << "#{p["name"]}=#{p["example"]}"
+    end if method["parameters"]
+    data = nil
+    unless params.empty?
+      data = "--data \"#{params.join('&')}\"  \\\n"
+    end
+    "curl -v #{data.nil? ? '' : "\\\n #{data}"} #{path}".chomp('?')
+  end
+end
+
+Rake::TestTask.new do |t|
+  t.pattern = "test/test_*.rb"
+end
+
+desc "Run tests"
+task :default => :test
+
+desc "Generate HTML and PDF"
+task :gen => [:html, :pdf]
+
+desc "Generate HTML docs"
+task :html => :prepare do  
+  File.open('index.html','w').write(@html)    
+end
+
+desc "Generate PDF docs"
+task :pdf => :prepare do  
+  `/Applications/wkhtmltopdf.app/Contents/MacOS/wkhtmltopdf --page-size A4 --margin-left 20mm --margin-right 20mm --margin-top 20mm --margin-bottom 20mm index.html #{@config["full_title"]}.pdf`
+  #`wkhtmltopdf --page-size A4 --margin-left 20mm --margin-right 20mm --margin-top 20mm --margin-bottom 20mm index.html #{@config["full_title"]}.pdf`
+  
+  # PDFKit.configure do |config|
+  #     config.root_url = @root_url
+  # end
+  # 
+  # kit = PDFKit.new(@html, :page_size => 'A4') #:print_media_type => true, 
+  # kit.stylesheets << 'report.css'
+  # file = kit.to_file("#{@config["full_title"]}.pdf")
+end
+
+desc "Prepare for generation"
+task :prepare do
+  @home_dir = File.dirname(__FILE__)
+  Dir.chdir('api-doc')
+  @root_url = "file://localhost#{Dir.pwd}/"
+  
+  @config = YAML::load( File.open( "#{@home_dir}/config.yaml" ) )  
+  @db = YAML::load( File.open( "#{@home_dir}/database.yaml" ) )
+    
+  doc = Tilt.new("index.md.erb").render(self, :db=>@db, :helper=>Helper.new, :config=>@config)
+  md = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options={}), extensions={:tables=>true})
+  #toc = Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC.new())
+  @content = md.render(doc)
+  
+  @html = ERB.new(File.open('template.html.erb','r').read()).result(binding())
+  @html = @html.gsub(/root_url/,@root_url)    
+  
+end
+
+def example(name)
+   return "TODO" if name.nil?
+   name = name.to_s   
+   File.open("#{@home_dir}/json_examples/#{name}.json".downcase,'r').read()
+end

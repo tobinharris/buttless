@@ -1,0 +1,125 @@
+
+About the API
+=============
+
+Describe the context of your API. What is it for? What can the user learn  in this document?
+
+What does this do for it's users? Who are the users? Using the API, it
+becomes possible to:
+
+-   Do something 1
+-   Do something 2
+-   Do something 3
+-   Do something 4
+
+## Supported Languages
+
+
+The API accepts HTTP GET and POST requests. This makes it possible to
+control the API using a wide variety of languages and frameworks with
+very little effort. To name a few, you can control the API using any of
+the following:
+
+-   Javascript or jQuery
+-   Java
+-   Microsoft .NET
+-   Ruby
+-   Python
+-   Objective-C
+
+## Getting Help
+
+Help is always available when working with the API. You can search the forum at FORUM.
+
+Quick Start
+===========
+
+Describe how someone can get started quickly with the API:
+
+    Using Ruby
+    require 'restclient'
+    json = RESTClient.get("http://192.168.1.3/api/funky/stuff")
+
+    Using CURL
+    curl "http://192.168.1.3/api/funky/stuff"      
+
+These would return
+<pre>
+<%= example :funky_stuff %>
+</pre>      
+
+API Documentation
+=================      
+
+## Overview
+<table class="api">
+<% @db.each do |res| %>
+<% res["methods"].each do |method| %>
+<tr>
+  <td><%= method["method"] %></td>
+  <td><%= method["path"] %></td>
+  <td><%= method["precis"] %></td>
+</tr>
+<% end %>
+<% end %>
+</table>
+
+## Global API's 
+
+<% @db.each do |res| %>
+## <%= res["resource"] %>
+
+<% res["methods"].each do |method| %>
+### <%= method["method"] %> <%= method["path"] %> <small style='color: #AAA'><%= method["path_comment"] %></small> <%= method["path"].length > 100 ? "<br/><span style='color:red'>WARNING: API too long at #{method["path"].length}!</span>" : "" %> 
+
+<%= method["precis"] %>
+
+<% if method["parameters"] %>
+#### Paramters
+
+<table class="parameters">
+  <tr>
+    <th>Name</th>
+    <th>Example</th>
+    <th>Description</th>
+    <th>Optional</th>
+  </tr>
+      
+<% method["parameters"].each do |param|%>
+<tr>
+  <td><%= param["name"]%></td>
+  <td><%= param["example"]%></td>
+  <td><%= param["precis"]%></td>
+  <td></td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
+#### Example request:
+
+<pre>
+<%= helper.example_curl(method)%>
+</pre>
+
+<% if method["resolves_to"] %>
+This API resolves to <code><%= method["resolves_to"]%></code>.
+<% end %>
+
+#### Example response:
+
+<pre>
+<%= example method["example_response"] %>
+</pre>
+
+#### Using this API
+
+<%= method["description"] %>
+
+<% end %>
+<% end %>
+
+
+## Glossary
+
+

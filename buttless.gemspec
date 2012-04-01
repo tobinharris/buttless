@@ -9,20 +9,20 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tobin Harris"]
-  s.date = "2012-03-25"
+  s.date = "2012-04-01"
   s.description = "Buttless gives you a way to quickly flesh out an API in detail. It generates sexy documentation. And, you can quickly run the API and simulate various scenarios without neededing a backend."
   s.email = "tobin@tobinharris.com"
   s.executables = ["buttless"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README_old.rdoc"
   ]
   s.files = [
     ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README_old.rdoc",
     "Rakefile",
     "VERSION",
     "bin/buttless",
@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
     "lib/template/server/config.ru",
     "lib/template/test/test_helper.rb",
     "lib/template/test/test_stuff.rb",
+    "readme.textile",
     "test/helper.rb",
     "test/test_buttless.rb"
   ]

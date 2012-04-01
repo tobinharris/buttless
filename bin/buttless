@@ -12,6 +12,10 @@ unless ARGV.empty?
   else    
     cmd = "cp -r #{file}/lib/template #{ARGV[0]}"
     puts cmd
+    `#{cmd}`
+    
+    puts "\nAffirmitive, captain. Your Buttless API is now ready!\n\nWhat next? \n\n* Open the ./#{ARGV[0]} folder in TextMate or your favourite editor\n* Read the readme.textile\n* bundle install\n* rake html\n* open api-doc\\index.html\n\n"
+    
   end
 else
   puts "\n\nButtless\nLets you design, document and develop against an API without having a backend.\n\nUsage\n\n\tbuttless my_api_project      # Generates an empty buttless folder"

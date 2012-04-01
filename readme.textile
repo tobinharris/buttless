@@ -1,0 +1,64 @@
+h1. Buttless
+
+Design, document and develop against API's in minutes without a back-end. 
+
+I wrote Buttless because "Engine Room Apps":http://engineroomapps.com often have to develop an iPhone app or web site without having the backend API or in place yet. This is pretty common when you're back-end developers are not in the office, or if you're waiting for your client's team to get on to it!
+
+With Buttless, you can do the following pretty quickly:
+
+# Define an API (resources, methods, parameters) using a simple YAML file
+# Define example JSON results that the API would send back
+# Generate pretty HTML and PDF documents for that defined API, which include usage instructions with CURL
+# Run a web server which creates a pretend backend for your API, so if you're an iPhone developer you have something to code against instantly
+
+h2. Install Gems
+
+Install necessary gems.
+
+<pre>
+bundle install
+</pre>
+
+h2. Generate some HTML
+
+The API is defined by editing the database.yml file, and also the example result files in the json_examples folder. You tweak this and then generate the HTML docs using:
+
+<pre>
+rake html
+</pre>
+
+Or, you can generate a PDF using
+
+<pre>
+rake pdf
+</pre>
+
+h3. Run your API in a web server
+
+h4. Define some tests for the API 
+
+It's easier to write API's if you have test cases setup to cover what is needed by the client. Simply add these to the ./test/ folder and then:
+
+<pre>
+rake test
+</pre>
+
+
+h2. Contributing to buttless
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+* Fork the project.
+* Start a feature/bugfix branch.
+* Commit and push until you are happy with your contribution.
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+h2. Copyright
+
+Copyright (c) 2012 Tobin Harris. See LICENSE.txt for
+further details.
+
+
+
+

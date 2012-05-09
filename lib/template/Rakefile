@@ -24,7 +24,7 @@ class Helper
     "#{ip}#{api_call}"
   end
   
-  def example_curl(method, ip="http://192.168.1.3", no=2)
+  def example_curl(method, ip="http://0.0.0.0:3000", no=2)
     path = example_path(method, ip)
     i = 0
     params = []    

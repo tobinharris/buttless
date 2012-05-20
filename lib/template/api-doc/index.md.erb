@@ -106,6 +106,10 @@ API Documentation
 This API resolves to <code><%= method["resolves_to"]%></code>.
 <% end %>
 
+<% if method["http_basic"] || method["http_basic"] == 1 %>
+<i>Note: This method uses HTTP BASIC authentication</i>
+<% end %>
+
 #### Example response:
 
 <pre>

@@ -37,7 +37,11 @@ class Helper
     unless params.empty?
       data = "--data \"#{params.join('&')}\"  \\\n"
     end
-    "curl -v #{data.nil? ? '' : "\\\n #{data}"} #{path}".chomp('?')
+    unless method["http_basic"] == 1
+      "curl -v #{data.nil? ? '' : "\\\n #{data}"} #{path}".chomp('?')
+    else
+      "curl -vk --user api:1234 #{data.nil? ? '' : "\\\n #{data}"} #{path}".chomp('?')
+    end    
   end
 end
 

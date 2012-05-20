@@ -29,6 +29,9 @@ Congrats, you've just started defining your API, and will be soon able to genera
 
 Now to "learn how to work with your API":https://github.com/tobinharris/buttless/blob/master/lib/template/readme.textile.
 
+h2. TODO
+
+* Make default method GET
 
 h2. Contributing to buttless
  

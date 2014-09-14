@@ -1,4 +1,7 @@
-require 'RedCarpet'
+require 'rubygems'
+require 'bundler/setup'
+require 'redcarpet'
+
 class Buttless
   def initialize(home_dir, host="http://127.0.0.1:9292")
     @home_dir = home_dir

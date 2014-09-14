@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'redcarpet'
+require 'erb'
 require 'tilt'
 
 class Buttless

@@ -28,7 +28,7 @@ map('/') do
     controller.set :public_folder, "#{root}/api-doc"
 
     get('/docs') {
-      buttless = Buttless.new(root, "#{request.scheme}://#{request.host}#{request.port != 80 ? ":#{request.port }": 0}")
+      buttless = Buttless.new(root, "#{request.scheme}://#{request.host}#{request.port != 80 ? ":#{request.port }": ''}")
       html = buttless.generate_html
       html
     }

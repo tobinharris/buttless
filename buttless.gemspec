@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "buttless"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tobin Harris"]
-  s.date = "2012-04-01"
+  s.date = "2014-09-13"
   s.description = "Buttless gives you a way to quickly flesh out an API in detail. It generates sexy documentation. And, you can quickly run the API and simulate various scenarios without neededing a backend."
   s.email = "tobin@tobinharris.com"
   s.executables = ["buttless"]

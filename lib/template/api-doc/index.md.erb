@@ -74,6 +74,11 @@ API Documentation
 
 <%= method["precis"] %>
 
+#### Using this API
+
+<%= method["description"] %>
+
+
 <% if method["parameters"] %>
 #### Paramters
 
@@ -99,7 +104,7 @@ API Documentation
 #### Example request:
 
 <pre>
-<%= helper.example_curl(method)%>
+<%= helper.example_curl(method,host)%>
 </pre>
 
 <% if method["resolves_to"] %>
@@ -112,13 +117,10 @@ This API resolves to <code><%= method["resolves_to"]%></code>.
 
 #### Example response:
 
-<pre>
-<%= example method["example_response"] %>
+<pre style="max-height: 600px; overflow: scroll;">
+<%= example(method["example_response"]) %>
 </pre>
 
-#### Using this API
-
-<%= method["description"] %>
 
 <% end %>
 <% end %>

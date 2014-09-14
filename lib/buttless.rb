@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'redcarpet'
+require 'tilt'
 
 class Buttless
   def initialize(home_dir, host="http://127.0.0.1:9292")
